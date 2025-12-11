@@ -10,9 +10,18 @@ export const generateAIContent = async (req, res) => {
 
     try{
        const aiResponse = await generateContent(prompt);
-       res.status(200).json({result: aiResponse});
+       
+       res.status(200).json({
+           success: true,
+           review: aiResponse,
+           timestamp: new Date().toISOString()
+       });
     }catch(error){
         console.error("Error generating content:", error);
-        res.status(500).json({error: "Failed to generate content"});
+        res.status(500).json({
+            success: false,
+            error: error.message || "Failed to generate content",
+            code: error.status || 500
+        });
     }
 }
