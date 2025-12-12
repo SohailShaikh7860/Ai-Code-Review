@@ -7,7 +7,11 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = process.env.FRONTEND_API_URL;
+
+app.use(cors({
+    origin: allowedOrigins,
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => {

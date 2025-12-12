@@ -1,12 +1,10 @@
-import { useState } from 'react'
+import CodeEditor from './components/CodeEditor'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    
-    </>
+    <div className="h-screen w-screen bg-gray-950 text-white">
+      <CodeEditor/>
+    </div>
   )
 }
 

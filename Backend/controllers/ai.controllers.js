@@ -2,14 +2,14 @@ import { generateContent } from "../services/ai.services.js";
 
 
 export const generateAIContent = async (req, res) => {
-    const prompt = req.query.prompt;
+    const { code } = req.body;
 
-    if(!prompt) {
-        return res.status(400).json({error: "Prompt is required"});
+    if(!code) {
+        return res.status(400).json({error: "Code is required"});
     }
 
     try{
-       const aiResponse = await generateContent(prompt);
+       const aiResponse = await generateContent(code);
        
        res.status(200).json({
            success: true,
