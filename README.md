@@ -1,12 +1,12 @@
 # 🔍 Code Reviewer
 
-An AI-powered code review tool that provides instant feedback on code quality, performance, and security using Google's Gemini AI.
+An AI-powered code review tool that provides instant feedback on code quality, performance, and security using Google's Gemini AI And HuggingFace Model.
 
 ![Code Reviewer Interface](image.png)
 
 ## ✨ Features
 
-- 🤖 **AI-Powered Reviews** - Get intelligent code analysis using Gemini 1.5 Flash
+- 🤖 **AI-Powered Reviews** - Get intelligent code analysis using Gemini 1.5 Flash or Qwen/Qwen2.5-Coder-32B-Instruct model
 - 📝 **Monaco Editor** - Professional code editor with syntax highlighting
 - 🎨 **Split-Screen View** - Write code on the left, see reviews on the right
 - ⚡ **Real-time Feedback** - Instant code quality, performance, and security insights
@@ -25,7 +25,7 @@ An AI-powered code review tool that provides instant feedback on code quality, p
 ### Backend
 - Node.js
 - Express.js
-- Google Gemini AI API
+- Google Gemini AI API and huggingface Model
 - dotenv
 
 ## 📦 Installation
@@ -50,6 +50,7 @@ npm install
 Create a `.env` file in the Backend directory:
 ```env
 GEMINI_KEY=your_gemini_api_key_here
+HUGGINGFACE_API=HF_your_api_key
 PORT=3000
 ```
 
