@@ -1,5 +1,6 @@
 import { generateContent } from "../services/ai.services.js";
 import { generateCodeReview } from "../services/hugging_Face.js";
+import  {generateCodeReviewOpenAI}  from "../services/open.ai.js";
 
 
 export const generateAIContent = async (req, res) => {
@@ -11,16 +12,16 @@ export const generateAIContent = async (req, res) => {
 
     try{
        
-       const aiResponse = await generateContent(code);
+       const aiResponse = await generateCodeReviewOpenAI(code);
        
        res.status(200).json({
            success: true,
            review: aiResponse,
-           provider: "Gemini AI",
+           provider: "OpenAI",
            timestamp: new Date().toISOString()
        });
     } catch(error){
-        console.error("Gemini AI Error:", error);
+        console.error("OpenAI Error:", error);
         
         if (error.status === 429 || error.status === 503) {
             try {
